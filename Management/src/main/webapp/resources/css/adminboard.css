@@ -1,0 +1,205 @@
+.postinserthead {
+	margin: 0 auto;
+	text-align: center;
+}
+
+.postbox01 {
+	margin: 0 auto;
+	width: 400px;
+	height: 40px;
+	text-align: center;
+}
+
+.postmar01 {
+	border-radius: 5px;
+	width: 200px;
+	height: 20px;
+}
+
+.postmar02 {
+	border-radius: 5px;
+	width: 75%;
+	border: solid 1px;
+	height: 35px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.postmar03 {
+	vertical-align: text-top;
+	border-radius: 5px;
+	width: 100%;
+	height: 400px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.button01 {
+	border-radius: 5px;
+	heigt: 20px;
+	width: 50px;
+	border: solid 1px #ccc;
+}
+
+.button02 {
+	border-radius: 5px;
+	heigt: 30px;
+	width: 70px;
+	border: solid 1px;
+}
+
+.headhyper {
+	text-align: right;
+	padding-right: 10px;
+	text-decoration: none;
+	height: 30px;
+}
+
+.button03 {
+	border-radius: 5px;
+	height: 35px;
+	width: 70px;
+	border: solid 1px;
+}
+
+.inputbut01 {
+	border-radius: 5px;
+	height: 35px;
+	width: 300px;
+	border: solid 1px;
+	padding-left: 10px;
+}
+
+.headhyper2 {
+	text-decoration: none;
+	border: solid 1px gray;
+	display: block;
+	height: 25px;
+	width: 170px;
+	border-radius: 10px;
+	float: right;
+	text-align: center;
+}
+
+.warn01 {
+	border: solid 1px;
+	width: 415px;
+	margin-bottom: 10px;
+	border-radius: 10px;
+	text-align: center;
+	height: 45px;
+	margin: 0 auto;
+}
+
+.rightmsg {
+	padding-right: 10px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	text-decoration: none;
+	height: 25px;
+	width: 70px;
+	border-radius: 10px;
+	float: right;
+	text-align: center;
+}
+
+.tableop01 {
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.lineH01 {
+	height: 40px;
+	border-bottom: solid 1px #ccc;
+}
+
+.paging01 {
+	text-align: center;
+}
+
+.pagingdeco {
+	text-decoration: none;
+}
+.commentbtn01 {
+	height: 54px;
+	width: 54px;
+	vertical-align: top;
+	float: right;
+	margin-left: 5px;
+	display: flex;
+	border-radius: 5px;
+	background-image: url("../adminposting/comment.png");
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	border: none;
+	background-color: transparent;
+}
+
+.table-comment01 {
+	display: flex;
+	flex-direction: row;	
+}
+
+.spaceta01 {
+	flex: 1;
+	border-radius: 5px;	
+	padding-left: 10px;
+}
+.spaceta02 {
+	width : 150px;
+	border-radius: 5px;	
+	padding-left: 10px;
+	margin-bottom: 5px;
+	border: solid 1px;
+}
+.fontss {
+	font-size : small;
+}
+.fontsm {
+	font-size: 16px;
+}
+.comment-low01{
+	border-bottom: solid 1px #CCC;
+}
+
+.comment-high01{
+	border-top: solid 1px #CCC
+}
+
+.margtop {
+	margin-top: 5px;
+}
+.commentbtn02 {
+	height: 54px;
+	width: 54px;
+	vertical-align: top;
+	float : right;
+	margin-left: 5px;
+	display: flex;
+	border-radius: 5px;
+	background-image: url("../adminposting/delete-button.png");
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	border: none;
+	background-color: transparent;
+}
+
+.margcustom p {
+	margin-bottom: 5px;
+	
+}
+
+#comment_list li {
+	list-style: none;
+}
+
+#comment_list {
+	padding-left: 10px;
+}

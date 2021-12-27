@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="csh.trade">
+
+	<select id="memberList" parameterType="MemberDTO" resultType="MemberDTO">
+		select
+		id, passwd, mobile, address, to_char(birthdate, 'yyyy-mm-dd'), name
+		from member
+	</select>
+
+	<select id="memberDetail" parameterType="MemberDTO" resultType="MemberDTO">
+		select
+		id, passwd, mobile, address, to_char(birthdate, 'yyyy-mm-dd') birthdate, name
+		from member
+		where id = #{id}
+	</select>
+
+	<insert id="memberInsert" parameterType="MemberDTO">
+		insert
+		into member (id, passwd, mobile, address, birthdate, name)
+		values (#{id}, #{passwd}, #{mobile}, #{address}, to_date(#{birthdate},'yyyy-mm-dd'), #{name})
+	</insert>
+	
+	<insert id="memberNewInsert" parameterType="MemberDTO">
+		insert
+		into member (id, passwd, mobile, address, birthdate, name)
+		values (#{id}, #{passwd}, #{mobile}, #{address}, to_date(#{birthdate},'yyyy-mm-dd'), #{name})
+	</insert>
+
+	<update id="memberUpdate" parameterType="MemberDTO">
+		update
+		member set passwd = #{passwd}, mobile = #{mobile}, address = #{address}
+		where id = #{id}
+	</update>
+
+	<delete id="memberDelete" parameterType="MemberDTO">
+		delete
+		from member
+		where id = #{id}
+	</delete>
+
+	<select id="getSearchList" resultType="MemberDTO" parameterType="HashMap">
+		select * from (
+		select rownum rnum, id, mobile, name from (
+		select * from member)
+		<where>
+		<if test="keyword != null">
+			name like ('%${keyword}%') or mobile like ('%${keyword}%') or id like ('%${keyword}%')
+		</if>
+		)
+		</where>
+		<![CDATA[
+			where rnum >= #{startrow} and rnum <= #{endrow}
+		]]>
+	</select>
+
+	<select id="getSearchListCount" resultType="int" parameterType="String">
+		select
+		count (*) from member where
+		<if test="value != null">
+			name like ('%${value}%') or mobile like ('%${value}%') or id like ('%${value}%')
+		</if>
+	</select>
+
+	<select id="getListCount" resultType="int">
+		select
+		count (*) from member
+	</select>
+
+	<select id="getMemberList" resultType="MemberDTO" parameterType="HashMap">
+		select * from (select rownum rnum, id, mobile, name from member)
+		<![CDATA[
+		where rnum >= #{startrow} and rnum <= #{endrow}
+		]]>
+	</select>
+
+	<!-- BoardDTO -->
+
+	<select id="boardList" resultType="BoardDTO">
+		select * from board
+	</select>
+
+	<select id="boardDetail" parameterType="BoardDTO" resultType="BoardDTO">
+		select * from board
+		where boardno = #{boardno}
+	</select>
+
+	<insert id="boardInsert" parameterType="BoardDTO">
+	<![CDATA[
+		insert
+		into board(boardno, boardtitle, boardcontent, boarddate, id, boardtag, attachedfile)
+		values (SEQ_BOARDNO.nextval, #{boardtitle}, #{boardcontent}, sysdate, #{id}, #{boardtag}, #{attachedfile, jdbcType=VARCHAR})
+		]]>
+		</insert>
+
+	<update id="boardUpdate" parameterType="BoardDTO">
+	<![CDATA[
+		update board
+		set boardtitle = #{boardtitle}, boardcontent = #{boardcontent}, boarddate = sysdate, boardtag = #{boardtag}, attachedfile = #{attachedfile, jdbcType=VARCHAR} where boardno= #{boardno}
+		]]>
+	</update>
+
+	<delete id="boardDelete" parameterType="BoardDTO">
+		delete board
+		where boardno = #{boardno}
+	</delete>
+	
+	<select id="boardSearchList" resultType="BoardDTO" parameterType="HashMap">
+		select * from (
+		select rownum rnum, boardno, boardtitle, boardcontent, id, boarddate, boardtag from (select * from board) where
+		<if test="keyword != null">
+			boardtitle like ('%${keyword}%') 
+		</if>
+		)
+		<![CDATA[
+		where rnum >= #{startrow} and rnum <= #{endrow}
+		]]>
+	</select>
+	
+	<select id="boardSearchListCount" resultType="int" parameterType="String">
+		select count (*) from board	where
+		<if test="value != null">
+			boardtitle like ('%${value}%') 
+		</if>
+	</select>
+	
+	<select id="boardListCount" resultType="int">
+		select count (*) from board
+	</select>
+	
+	<select id="getBoardList" resultType="BoardDTO" parameterType="HashMap">
+		select * from (select rownum rnum, boardno, boardtitle, boardcontent, id, boarddate, boardtag from board)
+		<![CDATA[
+		where rnum >= #{startrow} and rnum <= #{endrow}
+		]]>
+	</select>
+
+</mapper>
